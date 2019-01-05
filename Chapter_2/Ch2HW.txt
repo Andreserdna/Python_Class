@@ -1,0 +1,22 @@
+#Exercise 2.5
+#Financial operation(calculate tips)
+#Andres Valenzuela Tamayo
+
+subtotal = float(input("Enter subtotal: "))
+grat = float(input("Enter gratuity: "))
+grat_conversion = grat / 100
+grat_subtotal = grat_conversion * subtotal
+final_subtotal = grat_subtotal + subtotal
+print ("The gratuity is " ,grat_subtotal, " and the total is ", final_subtotal)
+
+>>>
+Enter subtotal: 2500
+Enter gratuity: 15
+The gratuity is  375.0  and the total is  2875.0
+>>>
+
+#Exercise 2.13
+#(Split Digits) Write a program that prompts the user to enter a four digit integer and displays
+# the number in reverse order
+#Andres Valenzuela Tamayo
+
