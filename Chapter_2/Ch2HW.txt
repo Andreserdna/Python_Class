@@ -20,3 +20,53 @@ The gratuity is  375.0  and the total is  2875.0
 # the number in reverse order
 #Andres Valenzuela Tamayo
 
+userAnswer = (input("Enter an integer: "))
+
+for x in reversed(userAnswer):
+    print(x)
+ 
+>>>
+Enter an integer: 3445
+5
+4
+4
+3
+>>>
+
+#Exercise 2.15
+#Geometry: area of a hexagon. Write a program that prompts the user to enter the side of a hexagon and displays the area
+s = eval(input("Enter side of hexagon: "))
+area = (3**(1/2) * 3 / 2) * s**2
+
+print("The area of the hexagon is", area2)
+
+>>>
+
+Enter side of hexagon: 7.5
+The area of the hexagon is 146.14178688862404
+
+>>>
+
+#2.19
+#(Financial Application: calculate future investment value)
+
+investmentAmount = eval(input("Enter investment amount e.g., 300000: "))
+annualInterestRate = eval(input("Enter annual interest rate e.g., 3.8: "))
+numberOfYears = eval(input("Enter number of years: "))
+
+monthlyInterestRate = annualInterestRate / 12
+numberOfMonths = numberOfYears % 12
+
+futureInvestmentAmount =  investmentAmount * (1 + monthlyInterestRate) **numberOfMonths
+
+print("Accumalated value is", futureInvestmentAmount)
+
+>>>
+
+Enter investment amount e.g., 300000: 1000
+Enter annual interest rate e.g., 3.8: 4.25
+Enter number of years: 1
+Accumalated value is 1354.1666666666667
+
+>>>
+

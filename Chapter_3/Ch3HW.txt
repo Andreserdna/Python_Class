@@ -1,0 +1,110 @@
+Exercise 3.4, 3.6, 3.9, 3.13, (3.12)
+
+#3.4(Geometry: estimate areas)
+#Andres Valenzuela Tamayo
+import math
+
+s = eval(input("Enter the side: "))
+
+area = 5 * s**2 / 4 *math.tan(3.14159 / 5)
+
+print("the area of the pentagon is",area)
+
+>>>
+
+Enter the side: 8.9     
+the area of the pentagon is 71.93671176840213
+
+>>>
+
+#3.6(Find the character of an ASCII code)
+answer = int(input("Enter an ASCII code between 0 and 127: "))
+
+
+if answer > 127:
+	print("ASCII code must between 0 and 127 try again")
+else:
+	print("The character is: ", chr(answer))
+>>>
+
+Enter an ASCII code between 0 and 127: 118
+The character is:  v
+
+Enter an ASCII code between 0 and 127: 333
+ASCII code must between 0 and 127 try again
+
+>>>
+
+#3.9(financial application: payroll)
+
+#user input
+employeeName = input("Enter Employees name: ")
+numberOfHoursWorked = eval(input("Enter number of hours worked per week: "))
+hourlyPayRate = eval(input("Enter hourly rate: "))
+federalTaxWith = eval(input("Enter federal tax withholding rate: "))
+stateTaxWith = eval(input("Enter state tax withholding rate: " ))
+
+#Gross pay formula
+grossPay = hourlyPayRate * numberOfHoursWorked
+
+#function to convert float to percentage
+def convert_to_percentage(value):
+	return value * 100
+
+#Federal and tax withholdings formuls
+federalTaxPercentageHeld =  (convert_to_percentage(federalTaxWith) * grossPay) / 100
+
+stateTaxPercentageHeld = (convert_to_percentage(stateTaxWith) * grossPay) / 100
+totalDeductions = federalTaxPercentageHeld + stateTaxPercentageHeld
+#total net pay after deductions
+netPay = grossPay - totalDeductions
+
+print("Employee name: ",employeeName)
+print("Hours worked: ",numberOfHoursWorked)
+print("Pay Rate :", hourlyPayRate)
+print("Gross Pay: ", grossPay)
+print("Deductions: \n",
+        "\t", "Federal Withholding: " + "(" + str(format(federalTaxWith,".2%")) + ")" + '$' ,format(federalTaxPercentageHeld,".2f"),"\n",
+        "\t", "State Withholding: " + "(" + str(format(stateTaxWith,".2%")) + ")" +'$',format(stateTaxPercentageHeld,".2f"),"\n",
+        "\t", "Total Deduction: ",'$',format(totalDeductions,".2f"),"\n",
+        "Net Pay: ", '$',str(netPay).strip())
+
+>>>
+
+Enter Employees name: ss
+Enter number of hours worked per week: 10
+Enter hourly rate: 9.75
+Enter federal tax withholding rate: 0.20
+Enter state tax withholding rate: 0.09
+Employee name:  ss
+Hours worked:  10
+Pay Rate : 9.75
+Gross Pay:  97.5
+Deductions: 
+ 	 Federal Withholding: (20.00%)$ 19.50 
+ 	 State Withholding: (9.00%)$ 8.78 
+ 	 Total Deduction:  $ 28.27 
+ Net Pay:  $ 69.225
+
+>>> 
+
+#3.13(Turtle:display a stop sign)
+import turtle
+
+turtle.pensize(5)
+turtle.screensize(200,200)
+
+turtle.home()
+turtle.begin_fill()
+turtle.color('red')
+turtle.circle(100,steps=6)
+turtle.end_fill()
+turtle.penup()
+
+turtle.goto(-50,75)
+turtle.color('white')
+turtle.pendown()
+turtle.write("STOP",font=("Times",30,"bold"))
+turtle.hideturtle()
+turtle.done()
+
