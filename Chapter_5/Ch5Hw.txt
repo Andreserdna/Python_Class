@@ -1,7 +1,7 @@
-Ch 5 Programming Assignment:
-Exercise: (5.1), 5.3, 5.17, 5.29, (5.39), (5.49)
-
-5.3(Conversion from kilograms to pounds) Write a program that displays the following table (note that 1 kilogram is 2.2 pounds):
+#Ch 5 Programming Assignment:
+#Andres Valenzuela Tamayo
+#Exercise: (5.1), 5.3, 5.17, 5.29, (5.39), (5.49)
+#5.3(Conversion from kilograms to pounds) Write a program that displays the following table (note that 1 #kilogram is 2.2 pounds):
 
 sKilo = "Kilograms"
 sPounds = "Pounds"
@@ -50,17 +50,71 @@ Kilograms                      Pounds
 
 >>>
 
-
-5.17
-(Display the ASCII character table) Write a program that displays the characters
-in the ASCII character table from ! to ~. Display ten characters per line. The characters are separated by exactly one space
-#! = 33, ~ = 126
-for i in range(33,126):
-    print(chr(i).format(10,'.2f'),end=' ')
+#5.17
+#(Display the ASCII character table) Write a program that displays the characters
+#in the ASCII character table from ! to ~. Display ten characters per line. The #characters are separated by exactly one space
 
 
+def print_as_table(int1,int2,cpl):
+
+	count = 0 # count the number of characters on a line
+	so = int1 # initialize our next charecter
+
+	while x <= int2:
+		print(chr(so),end=' ')
+		count += 1
+
+		if count == cpl:
+			print()
+			count = 0
+		so = so + 1
+
+print_as_table(33,126,10)
+
+>>>
+
+! " # $ % & ' ( ) * 
++ , - . / 0 1 2 3 4 
+5 6 7 8 9 : ; < = > 
+? @ A B C D E F G H 
+I J K L M N O P Q R 
+S T U V W X Y Z [ \ 
+] ^ _ ` a b c d e f 
+g h i j k l m n o p 
+q r s t u v w x y z 
+{ | }
+
+>>>
+
+#5.29 (Display leap years) Write a program that displays, ten per line, all the leap #years
+#in the twenty-first century (from year 2001 to 2100). The years are separated by
+#exactly one space.
 
 
-5.29 (Display leap years) Write a program that displays, ten per line, all the leap years
-in the twenty-first century (from year 2001 to 2100). The years are separated by
-exactly one space.
+def isLeapYear(sYear,eYear,cpl):
+	count = 0
+	print("Leaps years between " + str(startingYear) + ' ' + str(endingYear)+ ' ' + "are: \n")
+	for years in range(sYear,eYear + 1):
+		if years % 4 == 0 and years % 100 != 0 or years % 400 == 0:
+			print(years,end=' ')
+			count += 1
+
+			if count == cpl:
+				print()
+				count = 0
+startingYear = eval(input("Enter a starting Year: "))
+endingYear = eval(input("Entera ending year: "))
+isLeapYear(startingYear,endingYear,10)
+
+>>>
+
+Leaps years between 2001 2100 are: 
+
+2004 2008 2012 2016 2020 2024 2028 2032 2036 2040 
+2044 2048 2052 2056 2060 2064 2068 2072 2076 2080 
+2084 2088 2092 2096 
+
+
+>>>
+
+
