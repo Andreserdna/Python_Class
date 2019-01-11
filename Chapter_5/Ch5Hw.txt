@@ -1,0 +1,66 @@
+Ch 5 Programming Assignment:
+Exercise: (5.1), 5.3, 5.17, 5.29, (5.39), (5.49)
+
+5.3(Conversion from kilograms to pounds) Write a program that displays the following table (note that 1 kilogram is 2.2 pounds):
+
+sKilo = "Kilograms"
+sPounds = "Pounds"
+
+#function to convertKiloTopunds`6y 
+
+#Function for formatting strings
+def stringFormatter(kiloString,poundString):
+	fString = (format(kiloString,"<30"))
+	print(fString,poundString)
+
+
+stringFormatter(sKilo,sPounds)
+
+for number in range(0,23):
+	conversion = number * 2.2
+	print(number,format(conversion,'30.2f'))
+
+>>>
+
+
+Kilograms                      Pounds
+0                                0.00
+1                                2.20
+2                                4.40
+3                                6.60
+4                                8.80
+5                               11.00
+6                               13.20
+7                               15.40
+8                               17.60
+9                               19.80
+10                               22.00
+11                               24.20
+12                               26.40
+13                               28.60
+14                               30.80
+15                               33.00
+16                               35.20
+17                               37.40
+18                               39.60
+19                               41.80
+20                               44.00
+21                               46.20
+22                               48.40
+
+>>>
+
+
+5.17
+(Display the ASCII character table) Write a program that displays the characters
+in the ASCII character table from ! to ~. Display ten characters per line. The characters are separated by exactly one space
+#! = 33, ~ = 126
+for i in range(33,126):
+    print(chr(i).format(10,'.2f'),end=' ')
+
+
+
+
+5.29 (Display leap years) Write a program that displays, ten per line, all the leap years
+in the twenty-first century (from year 2001 to 2100). The years are separated by
+exactly one space.
