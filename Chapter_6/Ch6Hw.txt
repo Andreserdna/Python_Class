@@ -1,0 +1,145 @@
+#Ch 6 Programming Assignment:
+#Exercise 6.9, 6.11, 6.18, (6.16)
+#Andres Valenzuela Tamayo
+
+#6.9 (Conversions between feet and meters) Write a module that contains the following two functions:
+#Write a test program that invokes these functions to display the following tables:
+Feet 		Meters 		| 		Metes 		Feet
+1.0			0.305		|		20.0		66.574
+2.0			0.610		|		26.0		81.967
+...
+9.0			2.745		|		60.0		196.721
+10.0		3.050		|		66.0		213.115
+
+
+
+def footToMeter(foot):
+	return 0.305 * foot
+def meterToFeet(meter):
+	return meter / 0.305
+
+def print_header():
+	print("Feet\t\t\tMeters\t\t"+'|'+"\tMeters\t\tFeet")
+
+def number_incrementor(number1,number2,number3,number4,inc1=1,inc2=6):
+	for value in range(number1,number2,inc1):
+		feet_list =(value / 10) * 10
+		s1 = ('\t\t\t' + str(footToMeter(feet_list)))
+		print(str(feet_list) + s1)
+		for value2 in range(number3,number4,inc2):
+			meter_list = (value2 / 1) 
+			s2 = (meterToFeet(meter_list))
+			print("\t\t\t" +format(meter_list,'30.2f')+ format(s2,'20.2f')) 
+
+
+>>>
+vaandres@vaandres:~$ python3 6_9Hw222.py
+Feet			Meters		|	Meters		Feet
+1.0			0.305
+			                         20.00               65.57
+			                         26.00               85.25
+			                         32.00              104.92
+			                         38.00              124.59
+			                         44.00              144.26
+			                         50.00              163.93
+2.0			0.61
+			                         20.00               65.57
+			                         26.00               85.25
+			                         32.00              104.92
+			                         38.00              124.59
+			                         44.00              144.26
+			                         50.00              163.93
+
+
+
+
+>>>
+
+
+
+#6.11(Financial Application: compute commisions) Write a function that computes the commision using the scheme in exercise in 5.39. The header of the function is 
+
+def decide_commision(sales_amount):
+	if sales_amount <= 0.01 or sales_amount <= 5000:
+		#print("8 percent")
+		return 8
+	elif sales_amount <= 5000.01 or sales_amount <= 10000:
+		#print("10 percent")
+		return 10
+	elif sales_amount >= 10000.01:
+		#print("12 percent")
+		return 12
+		
+def incrementor(number1,number2, incrementor):
+	for value in range(number1,number2,incrementor):
+		compute_commision(decide_commision(value),value)
+def compute_commision(commision, sAmount):
+	print(sAmount,"\t\t\t\t",(commision / 100) * sAmount)
+	return (commision / 100) * sAmount
+
+def print_tables():
+	print("Sales Amount\t\t\tComission")
+
+def main():
+	print_tables()
+	incrementor(1000,100000,500)
+main()
+>>>
+
+Sales Amount			Comission
+1000 				 	80.0
+1500 				 	120.0
+2000 				 	160.0
+2500 				 	200.0
+3000 				 	240.0
+3500 				 	280.0
+4000 				 	320.0
+4500 				 	360.0
+5000 					400.0
+5500 					550.0
+6000 					600.0
+6500 				 	650.0
+7000 					700.0
+
+...
+>>>
+
+
+#6.13*(Display matrix of 0s and 1s) Write a function that displays an n-by-n matrix using the following header:
+
+def printMatrix(n):
+
+Each element is 0 or 1, which is generated randomly. Write a test program that
+prompts the user to enter n and displays an n-by-n matrix. Here is a sample run:)
+
+
+import random
+
+def printMatrix(n):
+	count = 0
+	numOfRows = n * n
+	while n <= numOfRows:
+		print(choose_random(),end=' ')
+		count += 1
+		if count == numOfRows:
+			print()
+			count = 0
+			n += 1
+
+def choose_random():
+	return random.randint(0,1)
+
+def main():
+	user_anwer = int(input("Enter value for n: "))
+	printMatrix(user_anwer)
+main()
+
+
+>>>
+
+Enter value for n: 2
+1 1 0 1 
+0 1 0 0 
+1 0 0 0 
+
+>>>
