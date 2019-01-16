@@ -1,0 +1,22 @@
+from Circle7_1 import Circle
+
+def main():
+	#create a circle object with a radius of 1
+	myCircle = Circle()
+
+	#print areas for radius 1,2,3,4,and 5
+	n = 5
+	printAreas(myCircle,n)
+
+	#display myCircle,radius and times
+	print("\nRadius is", myCircle.radius)
+	print("n is", n)
+
+#print a table of areas for radius
+def printAreas(c,times):
+	print("Radius \t\tArea")
+	while times >= 1:
+		print(c.radius,"\t\t",c.getArea())
+		c.radius = c.radius + 1
+		times = times - 1
+main()

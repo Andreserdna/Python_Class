@@ -1,0 +1,215 @@
+Ch7&8Hw.txt
+7.3, 7.5 (7.10) 8.4, (8.3), (8.12)
+(The Account class) Design a class named Account that contains:
+■ A private int data field named id for the account.x
+■ A private float data field named balance for the account.x
+■ A private float data field named annualInterestRate that stores the current
+interest rate. .
+■ A constructor that creates an account with the specified id (default 0), initial
+balance (default 100), and annual interest rate (default 0).x
+■ The accessor and mutator methods for id, balance, and annualInterestRate.x
+■ A method named getMonthlyInterestRate() that returns the monthly
+interest rate.
+■ A method named getMonthlyInterest() that returns the monthly interest. 
+■ A method named withdraw that withdraws a specified amount from the
+account.
+■ A method named deposit that deposits a specified amount to the account.
+Draw the UML diagram for the class, and then implement the class. (Hint: The
+method getMonthlyInterest() is to return the monthly interest amount, not
+the interest rate. Use this formula to calculate the monthly interest: balance *
+monthlyInterestRate. monthlyInterestRate is annualInterestRate
+/ 12. Note that annualInterestRate is a percent (like 4.5%). You need to
+divide it by 100.)
+Write a test program that creates an Account object with an account id of 1122, a
+balance of $20,000, and an annual interest rate of 4.5%. Use the withdraw
+method to withdraw $2,500, use the deposit method to deposit $3,000, and print
+the id, balance, monthly interest rate, and monthly interest
+
+
+#UML
+
+Account: class
+-id1 :int
+-balance: int
+-annualInterestRate:Float
+-----------------------------------
+Account(id:int,balance:float,annualInterestRate:float)
+getId():int
+getBalance():float
+getAnnualInterestRate():float
+getMonthlyInterestRate(annualInterestRate:float)
+getMonthlyInterest(annualInterestRate:float)
+setId(id1:int)none
+setBalance(getBalance():none)
+setAnnualInterestRate(annualInterestRate(): none)
+withdraw():float
+deposit():float
+
+
+#7_3ACCOUNT CLASS
+class Account:
+	def __init__(self, id1=0,balance =100,annualInterestRate=0):
+		self.__id1 = id1
+		self.__balance = balance
+		self.__annualInterestRate = annualInterestRate
+	def getId(self):
+		return self.__id1
+	def getBalance(self):
+		return self.__balance
+	def getAnnualInterestRate(self):
+		return self.__annualInterestRate / 100
+	def getMonthlyInterestRate(self):
+		return self.__annualInterestRate / 1200
+	def getMonthlyInterest(self):
+		return self.__balance * self.getMonthlyInterestRate()
+	def setId(self,id1):
+		self.__id1 = id1
+	def setBalance(self,balance):
+		self.__balance = balance
+	def setAnnualInterestRate(self,annualInterestRate):
+		self.__annualInterestRate = annualInterestRate
+	def withdraw(self):
+		withdraw_amount = eval(input("Enter an amount of money to withdraw: "))
+		return withdraw_amount
+	def deposit(self):
+		deposit_amount = eval(input("enter an amount of money to deposit: "))
+		return deposit_amount
+
+
+#7_3 TEST ACCOUNT
+from HW7_3 import Account
+def main():
+	account_id = 122
+	balance = 20000
+	annual_interest_rate = 4.5
+	acc1 = Account(account_id,balance,annual_interest_rate)
+	w = acc1.withdraw()
+	d = acc1.deposit()
+	print("account_id is", acc1.getId())
+	print("current Balance is after withdraw ", acc1.getBalance() - w)
+	print("current valance affter deposit is" ,acc1.getBalance() + d)
+	print("monthly InterestRate is ",acc1.getMonthlyInterestRate())
+	print("monthly interest is ",acc1.getMonthlyInterest())
+main()
+
+>>>
+
+Enter an amount of money to withdraw: 2000
+enter an amount of money to deposit: 3500
+account_id is 122
+current Balance is after withdraw  18000
+current valance affter deposit is 23500
+monthly InterestRate is  0.00375
+monthly interest is  75.0
+
+>>>
+
+
+
+7.5(Geometry: n-sided regular polygon) An n-sided regular polygon’s sides all have
+the same length and all of its angles have the same degree (i.e., the polygon is
+both equilateral and equiangular). Design a class named RegularPolygon that
+contains:
+■ A private int data field named n that defines the number of sides in the polygon.
+■ A private float data field named side that stores the length of the side.
+■ A private float data field named x that defines the x-coordinate of the center of
+the polygon with default value 0.
+238 Chapter 7 Objects and Classes
+■ A private float data field named y that defines the y-coordinate of the center of
+the polygon with default value 0.
+■ A constructor that creates a regular polygon with the specified n (default 3),
+side (default 1), x (default 0), and y (default 0).
+■ The accessor and mutator methods for all data fields.
+■ The method getPerimeter() that returns the perimeter of the polygon.
+■ The method getArea() that returns the area of the polygon. The formula for
+computing the area of a regular polygon is
+Draw the UML diagram for the class, and then implement the class. Write a test program that creates three RegularPolygon objects, created using RegularPolygon(),
+using RegularPolygon(6, 4) andd RegularPolygon(10, 4, 5.6, 7.8). For
+each object, display its perimeter and area.
+
+#7_5HW
+import math
+class RegularPolygon():
+	def __init__(self,n=3,side=1,x=0,y=0):
+		self.__n = n
+		self.__side = side
+		self.__x = x
+		self.__y = y
+	def getN(self):
+		return self.__n
+	def setN(self):
+		self.__n = n
+	def getSide(self):
+		return self.__side
+	def setSide(self):
+		self.__side = side
+	def getX(self):
+		return self.__x
+	def setX(self):
+		self.__x = x
+	def getY(self):
+		return self.__y
+	def setY(self):
+		self.__y = y
+	def getPerimeter(self):
+		return self.__n * self.__side
+	def getArea(self):
+		return (self.__n * math.pow(self.__side,2)) / (4 * math.tan(math.pi/self.__n))
+
+#Test RegularPolygon
+from HW7_5 import RegularPolygon
+
+def main():
+	reg1 = RegularPolygon()
+	reg2 = RegularPolygon(6,4)
+	reg3 = RegularPolygon(10,4,5.6,7.8)
+	print("area for reg1: ", reg1.getArea(),"perimeter is", reg1.getPerimeter())
+	print("area for reg2: ", reg2.getArea(),"perimeter is", reg2.getPerimeter())
+	print("area for reg3: ", reg3.getArea(),"perimeter is", reg3.getPerimeter())
+main()
+
+>>>
+
+area for reg1:  0.43301270189221946 perimeter is 3
+area for reg2:  41.569219381653056 perimeter is 24
+area for reg3:  123.10734148701015 perimeter is 40
+>>>
+
+
+RegularPolygon
+-n: int - defines the number of sides in the polygo
+-side: float - stores the length of the side
+-x: float - defines the x-coordinate of the center of the polygon
+-y: float - defines the y-coordinate of the center of the polygon 
+getPerimeter():float returns the permiter of n and side
+getArea():float - returns the perimeter of 
+
+
+8.4(Occurrences of a specified character) Write a function that finds the number of
+occurrences of a specified character in a string using the following header:
+def count(s, ch):
+The str class has the count method. Implement your method without using the
+count method. For example, count("Welcome", 'e') returns 2. Write a test
+program that prompts the user to enter a string followed by a character and displays the number of occurrences of the character in the string
+
+#8_4Hw
+class checkString:
+	def __init__(self,string = '', char = ''):
+		self.string = string
+		self.char = char
+	def checkOccurances(self):
+		count = 0
+		for letter in self.string:
+			if letter == self.char:
+				count += 1
+		return count
+	def print_result(self):
+		print("total count of " + self.char + " in " + self.string + " is " + str(self.checkOccurances()))
+#8_4Test
+from HW8_4 import checkString
+def main():
+	user_string_input= input("enter a string: ")
+	user_char_input = input("enter a character: ")
+	cs = checkString(user_string_input,user_char_input)
+	print(cs.print_result())
+main()
