@@ -1,0 +1,146 @@
+Ch 10-11 Programming Assignment:
+
+Exercise 10.1,10.8,10.13, (10.16) (10.29), (11.1)
+
+10.1 (Assign grades) Write a program that reads a list of scores and then assigns grades
+based on the following scheme:
+The grade is A if score is 7= best – 10.
+The grade is B if score is 7= best – 20.
+The grade is C if score is 7= best – 30.
+The grade is D if score is 7= best – 40.
+The grade is F otherwise.
+
+
+def readGrade(score,best):
+	for numbers in score:
+		if numbers >= best - 10:
+			a = "A"
+			print("student " + str(score.index(numbers)) + " score is " + str(numbers) + " and grade is " + a)
+		elif numbers >= best - 20:
+			b = "B"			
+			print("student " + str(score.index(numbers)) + " score is " + str(numbers) + " and grade is " + b)
+		elif numbers >= best - 30:
+			c = "C"
+			print("student " + str(score.index(numbers)) + " score is " + str(numbers) + " and grade is " + c)
+		elif numbers >= best - 40:
+			d = "D"
+			print("student " + str(score.index(numbers)) + " score is " + str(numbers) + " and grade is " + d)
+		else:
+			f = "F"
+			print("student " + str(score.index(numbers)) + " score is " + str(numbers) + " and grade is " + f)
+
+
+def main():
+	BEST = 100
+	scores = eval(input("Enter scores: "))
+	scores_list = []
+	for s in scores:
+		scores_list.append(s)
+	readGrade(scores_list,BEST)
+main()
+
+>>>
+
+atamayo@atamayo424:~/Development/MissionCollege_DEV/Python_Class/Chapter_10_11$ python3 10_1Hw.py 
+Enter scores: 100,90,80,70,50,60
+student 0 score is 100 and grade is A
+student 1 score is 90 and grade is A
+student 2 score is 80 and grade is B
+student 3 score is 70 and grade is C
+student 4 score is 50 and grade is F
+student 5 score is 60 and grade is D
+
+>>>
+
+
+10.8 (Find the index of the smallest element) Write a function that returns the index of
+the smallest element in a list of integers. If the number of such elements is greater
+than 1, return the smallest index. Use the following header:
+
+def indexOfSmallestElement(lst):
+Write a test program that prompts the user to enter a list of numbers, invokes this
+function to return the index of the smallest element, and displays the index.
+
+
+
+def indexOfSmallestElement(lst):
+	mini = min(lst)
+	where = lst.index(mini)
+	print("smallest number in list is " + str(mini) + " and the index is "  + str(where))
+def main():
+	#empty list
+	#user_answer = []
+	user_anw = []
+	number_of_number = eval(input("how many number will you include in your list: "))
+	for i in range(number_of_number):
+		answer = eval(input("enter a number: "))
+		user_anw.append(answer)
+
+	indexOfSmallestElement(user_anw)
+
+main()
+>>>
+
+
+atamayo@atamayo424:~/Development/MissionCollege_DEV/Python_Class/Chapter_10_11$ python3 10_8Hw.py 
+how many number will you include in your list: 4
+enter a number: 12   
+enter a number: 34
+enter a number: 58
+enter a number: 0 
+smallest number in list is 0 and the index is 3
+
+>>>
+
+# 10.13
+
+# (Eliminate duplicates) Write a function that returns a new list by eliminating the
+# duplicate values in the list. Use the following function header:
+# def eliminateDuplicates(lst):
+# Write a test program that reads in a list of integers, invokes the function, and dis-
+# plays the result. Here is the sample run of the program:
+
+def eliminateDuplicated(lst):
+
+	lst1 = []
+	for i in lst:
+		if i not in lst1:
+			lst1.append(i)
+	return lst1
+
+
+def main():
+	#creating the empty list to append the users numbers
+	upn = [] 
+	#prompting the user to provide the ten numbers
+	NUMBER_OF_INT = 10
+	print("enter ten numbers")
+	for i in range(NUMBER_OF_INT):
+		user_provided_numbers = eval(input(": "))
+		#appending the numbers
+		upn.append(user_provided_numbers)
+
+	#calling the eliminateDup function to get rid of dupe numbers
+	print("removing duplicte numbers")
+	print(eliminateDuplicated(upn))
+
+
+main()
+
+>>>
+atamayo@atamayo424:~/Development/MissionCollege_DEV/Python_Class/Chapter_10_11$ python3 1013Hw.py 
+enter ten numbers
+: 11
+: 11
+: 12
+: 13
+: 14
+: 14
+: 15
+: 16
+: 18
+: 13
+removing duplicte numbers
+[11, 12, 13, 14, 15, 16, 18]
+
+>>>
