@@ -20,13 +20,13 @@ class InvestmentCalculator:
 		Label(window,text="Number of Years").grid(row=3,column=1,sticky=W)
 		Label(window,text="Future Invesetment return").grid(row=4,column=1,sticky=W)
 		
-		self.annualInterestRateVar = StringVar()
+		self.annualInterestRateVar = DoubleVar() 
 		Entry(window,textvariable=self.annualInterestRateVar,justify=RIGHT).grid(row=1,column=2)
-		self.numberOfYearsVar = StringVar()
-		Entry(window,textvariable=self.numberOfYearsVar,justify=RIGHT).grid(row=2,column=2)
-		self.userInvestmentAmount = StringVar()
+		self.numberOfYearsVar = IntVar()
+		Entry(window,textvariable=self.numberOfYearsVar,justify=RIGHT).grid(row=2,column=2) 
+		self.userInvestmentAmount = DoubleVar()
 		Entry(window,textvariable=self.userInvestmentAmount,justify=RIGHT).grid(row=3,column=2)
-		self.investmentReturn = StringVar()
+		self.investmentReturn = DoubleVar()
 		lblInvestmentReturn = Label(window,textvariable=self.investmentReturn).grid(row=4,column=2,sticky=E)
 		#self.investmentReturn = StringVar()
 		#lblTotalPaymentVar = Label(window,textvariable=self.totalPaymentVar).grid(row=5,column=2,sticky=E)
@@ -41,7 +41,7 @@ class InvestmentCalculator:
 
 
 	def getFutureInvestment(self,investmentAmount,annualInterestRate,years):
-		annualInterestRate = annualInterestRate / 1200
+		annualInterestRate = annualInterestRate / 12
 		futureAmount = investmentAmount * math.pow((1 + annualInterestRate),years*12)
 		return futureAmount
 
